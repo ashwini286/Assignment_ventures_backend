@@ -23,8 +23,8 @@ router.post('/', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'https://your-netlify-site.netlify.app/success',
-      cancel_url: 'https://your-netlify-site.netlify.app/cancel',
+      success_url: 'http://localhost:3000/success',
+      cancel_url: 'http://localhost:3000/cancel',
     });
 
     res.json({ id: session.id });
