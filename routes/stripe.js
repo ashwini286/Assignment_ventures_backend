@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 
     res.json({ id: session.id });
   } catch (err) {
-    console.error('Stripe Error:', err.message);
+    console.error('Stripe Error:', err);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
