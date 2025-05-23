@@ -7,6 +7,11 @@ const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 router.post('/', async (req, res) => {
+  const { items } = req.body;
+  console.log(items); 
+});
+
+router.post('/', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
