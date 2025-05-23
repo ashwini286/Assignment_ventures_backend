@@ -14,6 +14,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+
+app.get('/', (req, res) => {
+  res.send('Backend is running ');
+});
 app.use('/create-checkout-session', stripeRoutes);
 app.post('/webhook', bodyParser.raw({ type: 'application/json' }), webhookHandler);
 
