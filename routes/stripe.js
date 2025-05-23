@@ -23,13 +23,13 @@ router.post('/', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:3000/success',
-      cancel_url: 'http://localhost:3000/cancel',
+      success_url: 'https://konnectimpact-module-payment-ashwini.netlify.app/success',
+      cancel_url: 'https://konnectimpact-module-payment-ashwini.netlify.app/cancel',
     });
 
     res.json({ id: session.id });
   } catch (err) {
-    console.error('❌ Stripe Error:', err.message);
+    console.error('Stripe Error:', err.message);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

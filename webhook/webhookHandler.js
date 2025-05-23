@@ -11,17 +11,17 @@ const webhookHandler = (req, res) => {
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err) {
-    console.error('❌ Webhook Error:', err.message);
+    console.error('Webhook Error:', err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Handle different event types
+ 
   switch (event.type) {
     case 'checkout.session.completed':
-      console.log('✅ Payment successful:', event.data.object.id);
+      console.log('Payment successful:', event.data.object.id);
       break;
     case 'payment_intent.payment_failed':
-      console.log('❌ Payment failed:', event.data.object.id);
+      console.log('Payment failed:', event.data.object.id);
       break;
     default:
       console.log('Unhandled event type:', event.type);
